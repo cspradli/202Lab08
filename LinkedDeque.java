@@ -80,7 +80,12 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public void addLast(E element) {
-  
+    if(isEmpty()) throw new NoSuchElementException();
+    DNode<E> node = new DNode<>(element);
+    node.previous = tail.previous;
+    tail.previous.next = node;
+    tail.previous = node;
+    node.next = tail;
   }
 
   public E removeLast() {
