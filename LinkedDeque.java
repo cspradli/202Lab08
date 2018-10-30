@@ -46,7 +46,10 @@ public class LinkedDeque<E> implements Deque<E> {
 // Complete the following methods:
 
   public void addFirst(E element) {
-
+    DNode<E> node = new DNode<>(element);
+    node.next = head.next;
+    head.next = node;
+    if(tail == head) tail = node;
   }
 
   public E removeFirst() {
