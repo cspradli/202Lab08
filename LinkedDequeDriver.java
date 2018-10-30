@@ -11,8 +11,8 @@ public class LinkedDequeDriver{
         list.printForward();
         list.addFirst("Peter");
         list.printForward();
-        System.out.println("First in list:\n"+list.getFirst());
-        list.removeFirstOccurrence("Peter");
+        System.out.println("First in list:\n"+list.getFirst()+"\n");
+        list.removeFirstOccurrence("Bill");
         list.printForward();
     }
 }

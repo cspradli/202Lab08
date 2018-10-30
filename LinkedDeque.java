@@ -74,6 +74,7 @@ public class LinkedDeque<E> implements Deque<E> {
         current.next.previous = current.previous;
         return true;
       }
+      current = current.next;
     }
     return false;
   }
