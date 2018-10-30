@@ -54,12 +54,22 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public E removeFirst() {
+    if (isEmpty()){
+        throw new NoSuchElementException();
+    }
+    DNode<E> tempFront = head.next.next;
+    E data = head.next.data;
+    if(tempFront != null) tempFront.previous = head;
+    if(tempFront == null) tail = head;
+    head.next = tempFront;
+    return data;
 
-    return null;
   }
 
   public E getFirst() {
-
+    if(isEmpty()){
+      throw new NoSuchElementException();
+    }
     return null;
   }
 
@@ -69,7 +79,10 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public void addLast(E element) {
-    DNode<E> node = new DNode<LinkedDeque.E>(element);
+    if(isEmpty()){
+        throw new NoSuchElementException();
+    }
+    DNode<E> node = new DNode<E>(element);
     node.previous = tail;
     if (tail != null) tail.next = node;
     if (tail == null) head.next = node;
@@ -77,12 +90,16 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public E removeLast() {
-
+    if(isEmpty()){
+        throw new NoSuchElementException();
+    }
     return null;
   }
 
   public E getLast() {
-
+    if(isEmpty()){
+      throw new NoSuchElementException();
+    }
     return null;
   }
 
