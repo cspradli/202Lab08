@@ -16,5 +16,10 @@ public class LinkedDequeDriver{
         list.printForward();
         list.addLast("Ben");
         list.printForward();
+        list.addLast("Bernard");
+        list.printForward();
+        list.removeLast();
+        list.printForward();
+        System.out.println("Last in list:\n"+list.getLast()+"\n");
     }
 }

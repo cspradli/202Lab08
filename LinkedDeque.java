@@ -89,11 +89,15 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public E removeLast() {
-    return null;
+    E data = tail.previous.data;
+    tail.previous = tail.previous.previous;
+    tail.previous.next = tail;
+    return data;
   }
 
   public E getLast() {
-    return null;
+    if (isEmpty()) throw new NoSuchElementException();
+    return tail.previous.data;
   }
 
   public boolean removeLastOccurrence(Object obj) {
