@@ -48,9 +48,9 @@ public class LinkedDeque<E> implements Deque<E> {
   public void addFirst(E element) {
     DNode<E> node = new DNode<>(element);
     node.next = head.next;
-    if(head.next != null) head.next.previous = node;
-    if(head.next == null) tail = node;
+    head.next.previous = node;
     head.next = node;
+    node.previous = head;
   }
 
   public E removeFirst() {
@@ -59,8 +59,8 @@ public class LinkedDeque<E> implements Deque<E> {
     }
     DNode<E> tempFront = head.next.next;
     E data = head.next.data;
-    if(tempFront != null) tempFront.previous = head;
-    if(tempFront == null) tail = head;
+    tempFront.previous = head;
+    tail = head;
     head.next = tempFront;
     return data;
 
@@ -110,7 +110,7 @@ public class LinkedDeque<E> implements Deque<E> {
 
   public void printForward() {
     System.out.println("The deque printed forward:");
-    DNode current = head.next;
+    DNode<E> current = head.next;
     while (current != tail) {
       System.out.println(current.data);
       current = current.next;
@@ -120,17 +120,11 @@ public class LinkedDeque<E> implements Deque<E> {
 
   public void printBackward() {
     System.out.println("The deque printed backward:");
-    DNode current = tail.previous;
+    DNode<E> current = tail.previous;
     while (current != head) {
       System.out.println(current.data);
       current = current.previous;
     }
     System.out.println();
   }
-  public static void main(String[] args) {
-    LinkedDeque list = new LinkedDeque();
-    int j = 12;
-    list.addFirst(j);
-  }
-
 }
