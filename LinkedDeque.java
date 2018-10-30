@@ -101,7 +101,15 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public boolean removeLastOccurrence(Object obj) {
-
+    DNode<E> current = tail.previous;
+    while(current != null){
+      if (current.data.equals(obj)){
+        current.previous.next = current.next;
+        current.next.previous = current.previous;
+        return true;
+      }
+      current = current.previous;
+    }
     return false;
   }
 

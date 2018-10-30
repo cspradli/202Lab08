@@ -21,5 +21,11 @@ public class LinkedDequeDriver{
         list.removeLast();
         list.printForward();
         System.out.println("Last in list:\n"+list.getLast()+"\n");
+        list.addLast("Bees");
+        list.addLast("James");
+        list.addLast("Conk");
+        list.printForward();
+        list.removeLastOccurrence("James");
+        list.printForward();
     }
 }
