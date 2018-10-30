@@ -48,8 +48,9 @@ public class LinkedDeque<E> implements Deque<E> {
   public void addFirst(E element) {
     DNode<E> node = new DNode<>(element);
     node.next = head.next;
+    if(head.next != null) head.next.previous = node;
+    if(head.next == null) tail = node;
     head.next = node;
-    if(tail == head) tail = node;
   }
 
   public E removeFirst() {
@@ -68,7 +69,11 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public void addLast(E element) {
-
+    DNode<E> node = new DNode<LinkedDeque.E>(element);
+    node.previous = tail;
+    if (tail != null) tail.next = node;
+    if (tail == null) head.next = node;
+    tail = node;
   }
 
   public E removeLast() {
@@ -104,6 +109,11 @@ public class LinkedDeque<E> implements Deque<E> {
       current = current.previous;
     }
     System.out.println();
+  }
+  public static void main(String[] args) {
+    LinkedDeque list = new LinkedDeque();
+    int j = 12;
+    list.addFirst(j);
   }
 
 }
