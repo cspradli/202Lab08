@@ -54,9 +54,7 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public E removeFirst() {
-    if (isEmpty()){
-        throw new NoSuchElementException();
-    }
+    if (isEmpty()) throw new NoSuchElementException();
     E data = head.next.data;
     head.next = head.next.next;
     head.next.previous = head;
@@ -64,21 +62,24 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public E getFirst() {
-    
-    return null;
+    if(isEmpty()) throw new NoSuchElementException();
+    return head.next.data;
   }
 
   public boolean removeFirstOccurrence(Object obj) {
-
+    DNode<E> current = head.next;
+    while(current.next != null){
+      if (current.data.equals(obj)){
+        current.previous.next = current.next;
+        current.next.previous = current.previous;
+        return true;
+      }
+    }
     return false;
   }
 
   public void addLast(E element) {
-    /*
-    DNode<E> node = new DNode<E>(element);
-    node.previous = tail;
-    tail.next = node;
-    tail = node;*/
+  
   }
 
   public E removeLast() {

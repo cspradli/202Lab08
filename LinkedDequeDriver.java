@@ -1,13 +1,18 @@
 public class LinkedDequeDriver{
     public static void main(String[] args) {
         LinkedDeque<String> list = new LinkedDeque<>();
-        list.addFirst("james");
+        list.addFirst("James");
         list.printForward();
-        list.addFirst("bill");
+        list.addFirst("Bill");
         list.printForward();
-        list.addFirst("cromwell");
+        list.addFirst("Cromwell");
         list.printForward();
         list.removeFirst();
+        list.printForward();
+        list.addFirst("Peter");
+        list.printForward();
+        System.out.println("First in list:\n"+list.getFirst());
+        list.removeFirstOccurrence("Peter");
         list.printForward();
     }
 }
