@@ -1,3 +1,7 @@
+/**
+ * @author Caleb Spradlin
+ * @version October 30 2018
+ */
 public class LinkedDequeDriver{
     public static void main(String[] args) {
         LinkedDeque<String> list = new LinkedDeque<>();

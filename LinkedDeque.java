@@ -1,3 +1,8 @@
+/**
+ * @author Caleb Spradlin
+ * @version October 30 2018
+ */
+
 import java.util.NoSuchElementException;
 
 public class LinkedDeque<E> implements Deque<E> {
