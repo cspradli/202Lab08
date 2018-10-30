@@ -89,6 +89,7 @@ public class LinkedDeque<E> implements Deque<E> {
   }
 
   public E removeLast() {
+    if(isEmpty()) throw new NoSuchElementException();
     E data = tail.previous.data;
     tail.previous = tail.previous.previous;
     tail.previous.next = tail;
